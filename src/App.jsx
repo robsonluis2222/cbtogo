@@ -22,6 +22,7 @@ function App() {
       const response = await api.post(`/${nameFolder}/new-request.php`, inputValues);
       closeNewRequest(); // Fecha o modal após o envio
       setInputValues({})
+      window.location.reload();
     } catch (error) {
       console.error('Error sending data:', error);
     }
