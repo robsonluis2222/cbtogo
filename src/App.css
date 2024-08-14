@@ -1,0 +1,136 @@
+body{
+  margin: 0;
+}
+.logo{
+  width: 170px;
+}
+.modal{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+}
+.bi-x-lg{
+  position: fixed;
+  top: 60px;
+  margin-left: 240px;
+  color: red;
+}
+.bi-file-earmark-x{
+  color: red;
+}
+.sub-collections{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  width: 400px;
+  height: 90vh;
+  background-color: black;
+}
+.nova-solicitacao{
+  padding: 10px 10px;
+  color: black;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: rgb(0, 243, 0);
+}
+.nova-solicitacao:hover{
+  background-color: rgb(59, 187, 59);
+  font-weight: bold;
+}
+.latest-request{
+  color: white;
+  padding: 10px 10px;
+  border-radius: 15px;
+  border: 2px solid white;
+  cursor: pointer;
+}
+.latest-request:hover{
+  color: black;
+  background-color: white;
+  font-weight: bold;
+}
+.collections{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.App{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.element{
+  width: 200px;
+  text-align: center;
+  padding: 10px 10px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.element:hover{
+  background-color: black;
+  color: white;
+}
+.modal2{
+  display: none;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+}
+.complete-request{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  background-color: black;
+  color: white;
+  max-height: 90vh; /* Ajuste conforme necessário */
+  overflow-y: auto;
+}
+.items-list{
+  margin-top: 50px;
+  height: 70vh;
+}
+.new-request{
+  display: none;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+}
+.model-request-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  max-height: 90vh; /* Ajuste conforme necessário */
+  overflow-y: auto;
+  background-color: black;
+  color: white;
+}
+.all-models{
+  margin-top: 50px;
+  height: 70vh;
+}
