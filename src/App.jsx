@@ -93,7 +93,7 @@ function App() {
               <div className='models-frame' key={key}>
                 <input
                   type="text"
-                  placeholder={modelData[key]}
+                  placeholder={modelData[key].toUpperCase()}
                   onChange={(e) => handleChangeInput(e, modelData[key])}
                 />
               </div>
@@ -117,7 +117,7 @@ function App() {
               {Object.entries(selectedRequest).map(([key, value]) => (
                 key !== 'nome' && (
                   <div className='item' key={key}>
-                    <span className='item-name'>{key}:</span>
+                    <span className='item-name'><b>{key}: </b></span>
                     <span className='item-value'>{value}</span>
                   </div>
                 )
