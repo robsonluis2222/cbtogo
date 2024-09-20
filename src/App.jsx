@@ -1,7 +1,7 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { api } from './api';
-import logoImage from './assets/logo.png'
+import logoImage from './assets/logo.png';
 import './App.css';
 
 function App() {
@@ -9,19 +9,28 @@ function App() {
   const [modelData, setModelData] = useState({});
   const [nameFolder, setNameFolder] = useState('');
   const [selectedRequest, setSelectedRequest] = useState([]);
-  const [inputValues, setInputValues] = useState({}); // Estado para armazenar valores dos inputs
-  const [requestTitle, setRequestTitle] = useState(null)
+  const [inputValues, setInputValues] = useState({});
+  const [requestTitle, setRequestTitle] = useState(null);
+  const [accessGranted, setAccessGranted] = useState(false);
 
   const modalRequestsRef = useRef(null);
   const completeRequestRef = useRef(null);
   const newRequestRef = useRef(null);
 
+  useEffect(() => {
+    const password = prompt('Digite a senha:');
+    if (password === 'ctg2024') { // Substitua por sua senha
+      setAccessGranted(true);
+    } else {
+      alert('Senha incorreta!');
+    }
+  }, []);
+
   const sendRequest = async () => {
     try {
-      // Envia os inputValues para o servidor via POST
       const response = await api.post(`/${nameFolder}/new-request.php`, inputValues);
-      closeNewRequest(); // Fecha o modal após o envio
-      setInputValues({})
+      closeNewRequest();
+      setInputValues({});
       window.location.reload();
     } catch (error) {
       console.error('Error sending data:', error);
@@ -66,6 +75,10 @@ function App() {
     completeRequestRef.current.style.display = 'none';
   };
 
+  if (!accessGranted) {
+    return <div>Acesso negado. Por favor, insira a senha correta.</div>;
+  }
+
   return (
     <div className='App'>
       <div className='modal' ref={modalRequestsRef}>
@@ -100,7 +113,7 @@ function App() {
             ))}
             <button
               className='btn-submit'
-              onClick={() => sendRequest(inputValues)} // Aqui você pode processar ou enviar os dados
+              onClick={sendRequest}
             >
               ENVIAR
             </button>
